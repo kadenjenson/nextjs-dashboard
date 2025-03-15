@@ -1,5 +1,11 @@
 import { Revenue } from './definitions';
 
+/**
+ * Format a number to US currency
+ * 
+ * @param amount - The amount to format
+ * @returns {string}
+ */
 export const formatCurrency = (amount: number) => {
   return (amount / 100).toLocaleString('en-US', {
     style: 'currency',
@@ -7,6 +13,13 @@ export const formatCurrency = (amount: number) => {
   });
 };
 
+/**
+ * Format a date string to a localized date.
+ * 
+ * @param dateStr - The date string to format
+ * @param locale - The locale to use
+ * @returns {string}
+ */
 export const formatDateToLocal = (
   dateStr: string,
   locale: string = 'en-US',
@@ -21,6 +34,12 @@ export const formatDateToLocal = (
   return formatter.format(date);
 };
 
+/**
+ * Generate the y-axis labels and the top label for the revenue chart.
+ * 
+ * @param revenue - The revenue data
+ * @returns {object}
+ */
 export const generateYAxis = (revenue: Revenue[]) => {
   // Calculate what labels we need to display on the y-axis
   // based on highest record and in 1000s
@@ -35,6 +54,12 @@ export const generateYAxis = (revenue: Revenue[]) => {
   return { yAxisLabels, topLabel };
 };
 
+/**
+ * 
+ * @param currentPage - The current page
+ * @param totalPages - The total number of pages
+ * @returns {Array}
+ */
 export const generatePagination = (currentPage: number, totalPages: number) => {
   // If the total number of pages is 7 or less,
   // display all pages without any ellipsis.
